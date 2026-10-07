@@ -1,441 +1,696 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Avinash Chilamathuru - B.Tech CSE Cyber Security student, developer and cybersecurity enthusiast.">
-    <title>Avinash | Cyber Security Portfolio</title>
-    
+
+    <title>Avinash Chilamathuru | Cyber Security Student</title>
+
+    <meta name="description"
+          content="Avinash Chilamathuru — CSE Cyber Security student interested in Cybersecurity, AI and Software Development.">
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-    <!-- Background Effects -->
-    <div class="background-grid" aria-hidden="true"></div>
-    <div class="glow glow-1" aria-hidden="true"></div>
-    <div class="glow glow-2" aria-hidden="true"></div>
+<!-- ================= BACKGROUND ================= -->
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo"><span>&lt;</span>Avinash<span>/&gt;</span></a>
+<div class="background">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="grid"></div>
+</div>
 
-            <nav class="nav-links" id="navLinks">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
-            </nav>
 
-            <button class="menu-btn" id="menuBtn" aria-label="Toggle Navigation Menu">☰</button>
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            <span>&lt;</span>AVINASH<span>/&gt;</span>
+        </a>
+
+        <nav id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certificates</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero section" id="home">
+
+    <div class="hero-content reveal">
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Open to opportunities
         </div>
-    </header>
 
-    <main>
-        <!-- HERO -->
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <div class="terminal-tag">
-                    <span class="terminal-dot"></span>
-                    Open to learning &amp; opportunities
+        <p class="hero-small">
+            HELLO, I'M
+        </p>
+
+        <h1>
+            Avinash<br>
+            <span>Chilamathuru</span>
+        </h1>
+
+        <h2>
+            CSE – Cyber Security Student
+        </h2>
+
+        <p class="hero-description">
+            I’m a Computer Science student passionate about
+            <strong>Cybersecurity</strong>, <strong>Artificial Intelligence</strong>
+            and building practical technology projects.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn primary">
+                Explore My Work
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="#contact" class="btn secondary">
+                Let's Connect
+            </a>
+
+        </div>
+
+        <div class="socials">
+
+            <a href="https://github.com/" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a href="mailto:YOUR_EMAIL@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Hero visual -->
+
+    <div class="hero-visual reveal">
+
+        <div class="terminal">
+
+            <div class="terminal-top">
+
+                <div class="terminal-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
 
-                <p class="hero-small">HELLO, WORLD 👋</p>
-                <h1>I'm <span>Avinash</span></h1>
-                <h2>CSE • Cyber Security Student</h2>
+                <span>avinash@portfolio:~</span>
 
-                <p class="hero-description">
-                    I’m a 3rd-year Computer Science student specializing in Cyber Security, passionate about building projects, exploring security, and turning ideas into practical solutions.
+            </div>
+
+            <div class="terminal-body">
+
+                <p>
+                    <span class="green">avinash</span>
+                    <span class="white">@</span>
+                    <span class="blue">portfolio</span>
+                    <span class="white">:$</span>
                 </p>
 
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary-btn">View My Work &rarr;</a>
-                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
-                </div>
+                <p class="command">
+                    whoami
+                </p>
 
-                <div class="social-links">
-                    <a href="https://github.com/aviinani" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <span>•</span>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </div>
+                <p class="output">
+                    CSE Cyber Security Student
+                </p>
+
+                <p class="command">
+                    interests
+                </p>
+
+                <p class="output">
+                    Cybersecurity<br>
+                    Artificial Intelligence<br>
+                    Software Development
+                </p>
+
+                <p>
+                    <span class="green">avinash</span>
+                    <span class="white">@portfolio:$</span>
+                    <span class="cursor"></span>
+                </p>
+
             </div>
 
-            <!-- TERMINAL CARD -->
-            <div class="hero-terminal">
-                <div class="terminal-header">
-                    <div class="terminal-dots" aria-hidden="true">
-                        <span></span><span></span><span></span>
-                    </div>
-                    <p>avinash@portfolio:~</p>
-                </div>
+        </div>
 
-                <div class="terminal-body">
-                    <p><span class="green">avinash</span>@portfolio:~$ whoami</p>
-                    <p class="terminal-output">Cyber Security Student</p>
+    </div>
 
-                    <p><span class="green">avinash</span>@portfolio:~$ cat skills.txt</p>
-                    <p class="terminal-output">
-                        Python • Java • HTML • CSS<br>
-                        Wireshark • Nessus • MediaPipe
-                    </p>
+</section>
 
-                    <p><span class="green">avinash</span>@portfolio:~$ ./build_future.sh</p>
-                    <p class="terminal-output">
-                        Building skills... <span class="cursor">_</span>
-                    </p>
-                </div>
-            </div>
-        </section>
 
-        <!-- QUICK STATS -->
-        <section class="stats">
-            <div class="stat-card">
-                <h3>3rd</h3>
-                <p>Year B.Tech</p>
-            </div>
-            <div class="stat-card">
-                <h3>7.22</h3>
-                <p>Current CGPA</p>
-            </div>
-            <div class="stat-card">
-                <h3>0</h3>
-                <p>Backlogs</p>
-            </div>
-            <div class="stat-card">
-                <h3>&infin;</h3>
-                <p>Learning Mode</p>
-            </div>
-        </section>
+<!-- ================= ABOUT ================= -->
 
-        <!-- ABOUT -->
-        <section class="section" id="about">
-            <div class="section-heading">
-                <span>01.</span>
-                <h2>About Me</h2>
-            </div>
+<section class="section" id="about">
 
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>I'm <strong>Chilamathuru Avinash</strong>, a B.Tech Computer Science student specializing in <strong>Cyber Security</strong> at Madanapalle Institute of Technology &amp; Science.</p>
-                    <p>Currently in my <strong>3rd year</strong>, I’m exploring cybersecurity, programming, web development, and practical problem solving.</p>
-                    <p>I enjoy learning by building things — from security tools and authentication systems to websites and AI-related projects.</p>
-                    <p>My goal is to continuously improve my technical skills, gain real-world experience through internships and projects, and eventually pursue higher studies.</p>
-                </div>
+    <div class="section-heading reveal">
 
-                <div class="about-card">
-                    <div class="about-card-icon">🔐</div>
-                    <h3>Cyber Security</h3>
-                    <p>Exploring vulnerability assessment, network security, authentication systems and secure application concepts.</p>
-                    <div class="mini-tags">
-                        <span>Security</span>
-                        <span>Networks</span>
-                        <span>Authentication</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <span>01</span>
 
-        <!-- EDUCATION -->
-        <section class="section">
-            <div class="section-heading">
-                <span>02.</span>
-                <h2>Education</h2>
+        <div>
+            <p>GET TO KNOW ME</p>
+            <h2>About Me</h2>
+        </div>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-text reveal">
+
+            <p>
+                I'm <strong>Avinash Chilamathuru</strong>, a B.Tech Computer
+                Science and Engineering student specializing in Cyber Security
+                at Madanapalle Institute of Technology and Science.
+            </p>
+
+            <p>
+                I'm interested in understanding how technology works,
+                how systems can be secured, and how artificial intelligence
+                can be used to create useful applications.
+            </p>
+
+            <p>
+                I enjoy learning by building projects and experimenting
+                with different technologies. My goal is to continuously
+                improve my technical skills and gain real-world experience.
+            </p>
+
+        </div>
+
+
+        <div class="about-card reveal">
+
+            <div class="profile-icon">
+                <i class="fa-solid fa-user-secret"></i>
             </div>
 
-            <div class="education-card">
-                <div class="education-icon">🎓</div>
+            <div class="info">
+
                 <div>
-                    <h3>B.Tech — Computer Science &amp; Engineering</h3>
-                    <p class="education-specialization">Specialization: Cyber Security</p>
-                    <p>Madanapalle Institute of Technology &amp; Science</p>
-                    <div class="education-details">
-                        <span>2024 – Present</span>
-                        <span>R23</span>
-                        <span>3rd Year</span>
-                        <span>CGPA: 7.22</span>
-                        <span>No Backlogs</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section class="section" id="skills">
-            <div class="section-heading">
-                <span>03.</span>
-                <h2>Skills</h2>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">💻</div>
-                    <h3>Programming</h3>
-                    <div class="skill-tags">
-                        <span>Python</span><span>Java</span><span>HTML</span><span>CSS</span>
-                    </div>
+                    <span>Degree</span>
+                    <strong>B.Tech – CSE</strong>
                 </div>
 
-                <div class="skill-card">
-                    <div class="skill-icon">🛡️</div>
-                    <h3>Cyber Security</h3>
-                    <div class="skill-tags">
-                        <span>Wireshark</span><span>Nessus</span><span>Vulnerability Assessment</span><span>Network Security</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">⚙️</div>
-                    <h3>Tools &amp; Technologies</h3>
-                    <div class="skill-tags">
-                        <span>GitHub</span><span>VS Code</span><span>PyCharm</span><span>Jupyter</span><span>Google Colab</span><span>VirtualBox</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🧠</div>
-                    <h3>Currently Exploring</h3>
-                    <div class="skill-tags">
-                        <span>MediaPipe</span><span>AI</span><span>Secure Authentication</span><span>Ethical Hacking</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section class="section" id="projects">
-            <div class="section-heading">
-                <span>04.</span>
-                <h2>Featured Projects</h2>
-            </div>
-            <p class="section-subtitle">Things I've built while learning and experimenting with technology.</p>
-
-            <div class="projects-grid">
-                <!-- PROJECT 1 -->
-                <article class="project-card featured">
-                    <div class="project-top">
-                        <div class="project-folder">📁</div>
-                        <span class="project-status">Featured</span>
-                    </div>
-                    <h3>Secure Gesture Authentication</h3>
-                    <p>A gesture-based authentication system built using Python and MediaPipe with gesture registration, PIN verification, liveness detection, and security logging.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>MediaPipe</span><span>Computer Vision</span><span>Security</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/aviinani" target="_blank" rel="noopener noreferrer">GitHub &nearr;</a>
-                    </div>
-                </article>
-
-                <!-- PROJECT 2 -->
-                <article class="project-card">
-                    <div class="project-top">
-                        <div class="project-folder">🔐</div>
-                    </div>
-                    <h3>File Encryption &amp; Decryption Tool</h3>
-                    <p>A Python-based utility designed to demonstrate file encryption and decryption concepts for protecting sensitive files.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>Cryptography</span><span>Cyber Security</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/aviinani" target="_blank" rel="noopener noreferrer">GitHub &nearr;</a>
-                    </div>
-                </article>
-
-                <!-- PROJECT 3 -->
-                <article class="project-card">
-                    <div class="project-top">
-                        <div class="project-folder">🔑</div>
-                    </div>
-                    <h3>Password Generator</h3>
-                    <p>A password generation project created to explore password security and the importance of strong, unpredictable credentials.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>HTML</span><span>CSS</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/aviinani" target="_blank" rel="noopener noreferrer">GitHub &nearr;</a>
-                    </div>
-                </article>
-
-                <!-- PROJECT 4 -->
-                <article class="project-card">
-                    <div class="project-top">
-                        <div class="project-folder">🌐</div>
-                    </div>
-                    <h3>Portfolio Website</h3>
-                    <p>A personal portfolio website built to showcase my education, technical skills, cybersecurity projects and learning journey.</p>
-                    <div class="project-tech">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/aviinani/Portfolio-Website" target="_blank" rel="noopener noreferrer">GitHub &nearr;</a>
-                    </div>
-                </article>
-
-                <!-- PROJECT 5 -->
-                <article class="project-card">
-                    <div class="project-top">
-                        <div class="project-folder">🕵️</div>
-                    </div>
-                    <h3>Nessus Vulnerability Assessment</h3>
-                    <p>Performed vulnerability assessment using Nessus in a controlled lab environment and analyzed discovered vulnerabilities.</p>
-                    <div class="project-tech">
-                        <span>Nessus</span><span>VirtualBox</span><span>Metasploitable</span><span>Security</span>
-                    </div>
-                </article>
-
-                <!-- PROJECT 6 -->
-                <article class="project-card">
-                    <div class="project-top">
-                        <div class="project-folder">🤖</div>
-                    </div>
-                    <h3>Squiny — AI Assistant</h3>
-                    <p>An experimental AI assistant concept exploring conversational interaction, automation and intelligent assistance.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>AI</span><span>Chatbot</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE -->
-        <section class="section" id="experience">
-            <div class="section-heading">
-                <span>05.</span>
-                <h2>Experience &amp; Activities</h2>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2026</span>
-                        <h3>Cisco AICTE Virtual Internship</h3>
-                        <p>Participating in the Cisco AICTE Virtual Internship Program with a focus on Cyber Security and practical industry-oriented learning.</p>
-                        <div class="timeline-tags">
-                            <span>Cyber Security</span><span>Industry Learning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2026</span>
-                        <h3>NPTEL Winter Internship</h3>
-                        <p>Exploring internship opportunities through the NPTEL Winter Internship program and expanding knowledge beyond the classroom.</p>
-                        <div class="timeline-tags">
-                            <span>NPTEL</span><span>Learning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2025 – 2026</span>
-                        <h3>Hackathon &amp; Innovation Activities</h3>
-                        <p>Participated in innovation and hackathon activities, working on prototypes and technology-driven ideas.</p>
-                        <div class="timeline-tags">
-                            <span>Hackathon</span><span>Innovation</span><span>Prototype</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CERTIFICATIONS -->
-        <section class="section">
-            <div class="section-heading">
-                <span>06.</span>
-                <h2>Certifications &amp; Learning</h2>
-            </div>
-
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <span>📜</span>
-                    <div>
-                        <h3>NPTEL Certifications</h3>
-                        <p>Multiple NPTEL course certifications</p>
-                    </div>
-                </div>
-                <div class="cert-card">
-                    <span>🎓</span>
-                    <div>
-                        <h3>Coursera Certifications</h3>
-                        <p>Multiple online course certifications</p>
-                    </div>
-                </div>
-                <div class="cert-card">
-                    <span>🏆</span>
-                    <div>
-                        <h3>College Activities</h3>
-                        <p>Poster presentation &amp; extracurricular activities</p>
-                    </div>
-                </div>
-                <div class="cert-card">
-                    <span>💡</span>
-                    <div>
-                        <h3>Technical Learning</h3>
-                        <p>Continuous hands-on learning through projects</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CURRENT FOCUS -->
-        <section class="focus-section">
-            <div class="focus-card">
                 <div>
-                    <span class="focus-label">CURRENT FOCUS</span>
-                    <h2>Learning. Building. Securing. 🚀</h2>
-                    <p>Currently focused on improving my programming skills, cybersecurity knowledge, communication skills and building projects that solve real problems.</p>
+                    <span>Specialization</span>
+                    <strong>Cyber Security</strong>
                 </div>
 
-                <div class="focus-terminal">
-                    <p><span>$</span> learning --now</p>
-                    <p>&rarr; Cyber Security</p>
-                    <p>&rarr; Python</p>
-                    <p>&rarr; Networking</p>
-                    <p>&rarr; AI &amp; Computer Vision</p>
-                    <p>&rarr; Communication</p>
+                <div>
+                    <span>Batch</span>
+                    <strong>R23</strong>
                 </div>
-            </div>
-        </section>
 
-        <!-- CONTACT -->
-        <section class="section contact-section" id="contact">
-            <div class="section-heading">
-                <span>07.</span>
-                <h2>Let's Connect</h2>
-            </div>
-
-            <div class="contact-content">
-                <h2>Have an idea or opportunity?</h2>
-                <p>I'm always interested in learning, collaborating, working on interesting projects and exploring new opportunities.</p>
-
-                <a href="mailto:chilamathuruavinash@gmail.com" class="btn primary-btn contact-btn">Say Hello &rarr;</a>
-
-                <div class="contact-info">
-                    <a href="mailto:chilamathuruavinash@gmail.com">📧 chilamathuruavinash@gmail.com</a>
-                    <a href="https://github.com/aviinani" target="_blank" rel="noopener noreferrer">💻 github.com/aviinani</a>
+                <div>
+                    <span>Graduation</span>
+                    <strong>2028</strong>
                 </div>
+
             </div>
-        </section>
-    </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-logo">&lt;Avinash/&gt;</div>
-        <p>Designed &amp; built by Avinash</p>
-        <p class="footer-code"><span>while</span>(learning) { build(); }</p>
-    </footer>
+        </div>
 
-    <script src="script.js"></script>
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section class="section" id="skills">
+
+    <div class="section-heading reveal">
+
+        <span>02</span>
+
+        <div>
+            <p>WHAT I WORK WITH</p>
+            <h2>Skills</h2>
+        </div>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>Programming</h3>
+
+            <div class="tags">
+                <span>Java</span>
+                <span>Python</span>
+                <span>JavaScript</span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+
+            <h3>Web Development</h3>
+
+            <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>Cybersecurity</h3>
+
+            <div class="tags">
+                <span>Security Basics</span>
+                <span>Nessus</span>
+                <span>Wireshark</span>
+                <span>Metasploitable</span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <h3>AI & Tools</h3>
+
+            <div class="tags">
+                <span>AI Concepts</span>
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>Android Studio</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section class="section" id="projects">
+
+    <div class="section-heading reveal">
+
+        <span>03</span>
+
+        <div>
+            <p>THINGS I'VE BUILT</p>
+            <h2>Projects</h2>
+        </div>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <!-- Project 1 -->
+
+        <article class="project-card featured reveal">
+
+            <div class="project-number">
+                01
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <div class="project-content">
+
+                <p class="project-type">
+                    WEB PROJECT
+                </p>
+
+                <h3>Password Generator</h3>
+
+                <p>
+                    A web-based password generator designed to create
+                    strong and customizable passwords with a simple
+                    user-friendly interface.
+                </p>
+
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- Project 2 -->
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                02
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-terminal"></i>
+            </div>
+
+            <div class="project-content">
+
+                <p class="project-type">
+                    CYBERSECURITY
+                </p>
+
+                <h3>Security Lab</h3>
+
+                <p>
+                    Hands-on cybersecurity practice involving virtual
+                    machines, vulnerability scanning, network traffic
+                    analysis and security assessment tools.
+                </p>
+
+                <div class="project-tags">
+                    <span>VirtualBox</span>
+                    <span>Nessus</span>
+                    <span>Wireshark</span>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- Project 3 -->
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                03
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-id-card"></i>
+            </div>
+
+            <div class="project-content">
+
+                <p class="project-type">
+                    WEB DEVELOPMENT
+                </p>
+
+                <h3>Personal Portfolio</h3>
+
+                <p>
+                    A responsive personal portfolio website created to
+                    showcase my education, technical skills, projects
+                    and professional journey.
+                </p>
+
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CERTIFICATIONS ================= -->
+
+<section class="section" id="certifications">
+
+    <div class="section-heading reveal">
+
+        <span>04</span>
+
+        <div>
+            <p>MY LEARNING JOURNEY</p>
+            <h2>Certifications</h2>
+        </div>
+
+    </div>
+
+
+    <div class="certification-grid">
+
+
+        <div class="cert-card reveal">
+
+            <div class="cert-icon">
+                <i class="fa-solid fa-certificate"></i>
+            </div>
+
+            <div>
+                <span>03 Certificates</span>
+                <h3>NPTEL</h3>
+                <p>
+                    Completed NPTEL courses as part of my continuous
+                    technical learning journey.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="cert-card reveal">
+
+            <div class="cert-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div>
+                <span>05 Certificates</span>
+                <h3>Coursera</h3>
+                <p>
+                    Completed multiple online courses covering
+                    technology and professional skills.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="cert-card reveal">
+
+            <div class="cert-icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div>
+                <span>Cisco</span>
+                <h3>AI Fundamentals</h3>
+                <p>
+                    AI Fundamentals: Language and Vision in AI.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="cert-card reveal">
+
+            <div class="cert-icon">
+                <i class="fa-solid fa-presentation-screen"></i>
+            </div>
+
+            <div>
+                <span>College</span>
+                <h3>Poster Presentation</h3>
+                <p>
+                    Participated in a college-level poster presentation.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section class="section education-section">
+
+    <div class="section-heading reveal">
+
+        <span>05</span>
+
+        <div>
+            <p>MY ACADEMIC PATH</p>
+            <h2>Education</h2>
+        </div>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <span>2024 – Present</span>
+
+                <h3>B.Tech – Computer Science & Engineering</h3>
+
+                <h4>Cyber Security</h4>
+
+                <p>
+                    Madanapalle Institute of Technology and Science
+                    (MITS), Andhra Pradesh
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="contact-box reveal">
+
+        <p class="contact-small">
+            HAVE A PROJECT OR OPPORTUNITY?
+        </p>
+
+        <h2>
+            Let's build something<br>
+            <span>meaningful.</span>
+        </h2>
+
+        <p>
+            I'm always interested in learning, collaborating and
+            exploring opportunities that help me grow.
+        </p>
+
+        <a href="mailto:YOUR_EMAIL@gmail.com" class="btn primary">
+            Get In Touch
+            <i class="fa-solid fa-paper-plane"></i>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-logo">
+            &lt;AVINASH/&gt;
+        </div>
+
+        <p>
+            Designed & built by Avinash Chilamathuru
+        </p>
+
+        <div class="footer-socials">
+
+            <a href="https://github.com/" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 Avinash Chilamathuru. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
+```
