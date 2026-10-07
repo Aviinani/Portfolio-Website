@@ -1,40 +1,152 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
+```javascript
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
 
-    if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Toggle menu icon accessibility
-            const isExpanded = navLinks.classList.contains('active');
-            menuBtn.setAttribute('aria-expanded', isExpanded);
-        });
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
 
-        // Close menu when clicking any navigation link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+menuBtn.addEventListener("click", () => {
+
+    navMenu.classList.toggle("active");
+
+    const icon = menuBtn.querySelector("i");
+
+    if (navMenu.classList.contains("active")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+    } else {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
     }
 
-    // Header Background Blur Shadow on Scroll
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
-        } else {
-            header.style.boxShadow = 'none';
-        }
+});
+
+
+/* Close mobile menu after clicking a link */
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navMenu.classList.remove("active");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
     });
 
-    // Optional: Terminal Interactive Typing Effect Helper
-    const terminalCursor = document.querySelector('.cursor');
-    if (terminalCursor) {
-        setInterval(() => {
-            terminalCursor.style.opacity = terminalCursor.style.opacity === '0' ? '1' : '0';
-        }, 500);
-    }
 });
+
+
+/* =========================================================
+   SCROLL REVEAL ANIMATION
+   ========================================================= */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("active");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+
+revealElements.forEach(element => {
+    revealObserver.observe(element);
+});
+
+
+/* =========================================================
+   NAVBAR ACTIVE LINK
+   ========================================================= */
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 150;
+
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.style.color = "";
+
+        if (link.getAttribute("href") === `#${current}`) {
+            link.style.color = "#ffffff";
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   TERMINAL TYPING EFFECT
+   ========================================================= */
+
+const cursor = document.querySelector(".cursor");
+
+setInterval(() => {
+
+    if (cursor) {
+        cursor.style.opacity =
+            cursor.style.opacity === "0" ? "1" : "0";
+    }
+
+}, 500);
+
+
+/* =========================================================
+   SMOOTH BUTTON FEEDBACK
+   ========================================================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function (event) {
+
+        const target = document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if (target) {
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+```
