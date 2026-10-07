@@ -1,42 +1,81 @@
-```javascript
+/* =========================================================
+   AVINASH CHILAMATHURU PORTFOLIO
+   JavaScript
+   ========================================================= */
+
+
 /* =========================================================
    MOBILE NAVIGATION
    ========================================================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const navMenu = document.getElementById("navMenu");
-
-menuBtn.addEventListener("click", () => {
-
-    navMenu.classList.toggle("active");
-
-    const icon = menuBtn.querySelector("i");
-
-    if (navMenu.classList.contains("active")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-xmark");
-    } else {
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
-    }
-
-});
+const menuBtn = document.querySelector(".menu-btn");
+const navMenu = document.querySelector("nav");
 
 
-/* Close mobile menu after clicking a link */
+if (menuBtn && navMenu) {
 
-document.querySelectorAll("#navMenu a").forEach(link => {
+    menuBtn.addEventListener("click", () => {
 
-    link.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
 
-        navMenu.classList.remove("active");
+        const isOpen =
+            navMenu.classList.contains("active");
 
-        const icon = menuBtn.querySelector("i");
 
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
+        if (isOpen) {
+
+            menuBtn.innerHTML = "✕";
+
+        } else {
+
+            menuBtn.innerHTML = "☰";
+
+        }
 
     });
+
+
+    /* Close menu after clicking a link */
+
+    navMenu
+        .querySelectorAll("a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navMenu.classList.remove("active");
+
+                menuBtn.innerHTML = "☰";
+
+            });
+
+        });
+
+}
+
+
+/* =========================================================
+   NAVBAR SCROLL EFFECT
+   ========================================================= */
+
+const navbar =
+    document.querySelector(".navbar");
+
+
+window.addEventListener("scroll", () => {
+
+    if (!navbar) return;
+
+
+    if (window.scrollY > 30) {
+
+        navbar.classList.add("scrolled");
+
+    } else {
+
+        navbar.classList.remove("scrolled");
+
+    }
 
 });
 
@@ -45,108 +84,247 @@ document.querySelectorAll("#navMenu a").forEach(link => {
    SCROLL REVEAL ANIMATION
    ========================================================= */
 
-const revealElements = document.querySelectorAll(".reveal");
+const revealElements =
+    document.querySelectorAll(".reveal");
 
-const revealObserver = new IntersectionObserver(
-    (entries) => {
 
-        entries.forEach(entry => {
+const revealObserver =
+    new IntersectionObserver(
 
-            if (entry.isIntersecting) {
+        entries => {
 
-                entry.target.classList.add("active");
+            entries.forEach(entry => {
 
-                revealObserver.unobserve(entry.target);
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("active");
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   ACTIVE NAVIGATION LINK
+   ========================================================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navLinks =
+    document.querySelectorAll("nav a");
+
+
+function updateActiveNavigation() {
+
+    let currentSection = "";
+
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 180;
+
+        const sectionHeight =
+            section.offsetHeight;
+
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY <
+                sectionTop + sectionHeight
+        ) {
+
+            currentSection =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+
+        const target =
+            link.getAttribute("href");
+
+
+        if (
+            target ===
+            `#${currentSection}`
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateActiveNavigation
+);
+
+
+updateActiveNavigation();
+
+
+/* =========================================================
+   TERMINAL CURSOR
+   ========================================================= */
+
+const cursor =
+    document.querySelector(".cursor");
+
+
+if (cursor) {
+
+    setInterval(() => {
+
+        cursor.style.opacity =
+            cursor.style.opacity === "0"
+                ? "1"
+                : "0";
+
+    }, 500);
+
+}
+
+
+/* =========================================================
+   SMOOTH SCROLL
+   ========================================================= */
+
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(anchor => {
+
+        anchor.addEventListener(
+            "click",
+            function (event) {
+
+                const target =
+                    document.querySelector(
+                        this.getAttribute("href")
+                    );
+
+
+                if (target) {
+
+                    event.preventDefault();
+
+
+                    target.scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "start"
+
+                    });
+
+                }
 
             }
+        );
 
-        });
+    });
 
-    },
-    {
-        threshold: 0.12
+
+/* =========================================================
+   MOUSE PARALLAX FOR TERMINAL
+   ========================================================= */
+
+const terminal =
+    document.querySelector(".terminal");
+
+
+if (
+    terminal &&
+    window.innerWidth > 900
+) {
+
+    document.addEventListener(
+        "mousemove",
+        event => {
+
+            const x =
+                (window.innerWidth / 2 -
+                    event.clientX) / 80;
+
+            const y =
+                (window.innerHeight / 2 -
+                    event.clientY) / 100;
+
+
+            terminal.style.transform =
+                `rotateX(${y}deg)
+                 rotateY(${-x}deg)
+                 rotateZ(1deg)`;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RESET TERMINAL TRANSFORM ON MOBILE
+   ========================================================= */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        if (
+            terminal &&
+            window.innerWidth <= 900
+        ) {
+
+            terminal.style.transform =
+                "none";
+
+        }
+
     }
 );
 
 
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
-
-
 /* =========================================================
-   NAVBAR ACTIVE LINK
+   PAGE LOADED
    ========================================================= */
 
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("nav a");
+window.addEventListener(
+    "load",
+    () => {
 
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.style.color = "";
-
-        if (link.getAttribute("href") === `#${current}`) {
-            link.style.color = "#ffffff";
-        }
-
-    });
-
-});
-
-
-/* =========================================================
-   TERMINAL TYPING EFFECT
-   ========================================================= */
-
-const cursor = document.querySelector(".cursor");
-
-setInterval(() => {
-
-    if (cursor) {
-        cursor.style.opacity =
-            cursor.style.opacity === "0" ? "1" : "0";
-    }
-
-}, 500);
-
-
-/* =========================================================
-   SMOOTH BUTTON FEEDBACK
-   ========================================================= */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function (event) {
-
-        const target = document.querySelector(
-            this.getAttribute("href")
+        document.body.classList.add(
+            "loaded"
         );
 
-        if (target) {
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-});
-```
+    }
+);
