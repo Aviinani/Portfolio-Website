@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050711">
+  <meta name="description" content="Avinash — CSE Cyber Security student, security enthusiast, and developer.">
+  <title>AVINASH.exe | Cyberpunk Portfolio</title>
+  <!-- Libraries loaded from CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <canvas id="universe" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="hud-frame" aria-hidden="true"><span class="crosshair crosshair-a"></span><span class="crosshair crosshair-b"></span><span class="crosshair crosshair-c"></span></div>
+
+  <div class="hud">
+    <header class="topbar">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Avinash portfolio home"><span class="brand-icon"><span>A</span></span><span>AVINASH<span class="accent">.exe</span></span></a>
+        <div class="nav-links" id="navLinks">
+          <a class="nav-link active" href="#home">HOME</a><a class="nav-link" href="#about">ABOUT</a><a class="nav-link" href="#skills">SKILLS</a><a class="nav-link" href="#projects">PROJECTS</a><a class="nav-link" href="#contact">CONTACT</a>
+        </div>
+        <div class="system-status"><span class="status-dot"></span><span>SYS_STATUS: ONLINE</span></div>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">[ MENU ]</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <div class="hero-kicker"><span class="status-dot"></span>SYSTEM INITIALIZED // WELCOME, USER</div>
+            <h1 class="hero-title">I'M <span class="name">AVINASH<span class="magenta-text">.</span></span></h1>
+            <p class="hero-subtitle">CSE <span class="magenta-text">/</span> <span class="typed-role" id="typedRole">CYBER SECURITY STUDENT</span><span class="cursor"></span></p>
+            <p class="hero-description">Exploring the intersection of cybersecurity and software development. I build practical projects, investigate security concepts, and keep learning how to make digital systems safer.</p>
+            <div class="hero-actions"><a class="tech-button glitch-hover" href="#projects"><span class="glitch-text">[ EXPLORE PROJECTS ]</span><span aria-hidden="true">↘</span></a><a class="tech-button secondary glitch-hover" href="#contact"><span class="glitch-text">[ CONTACT ME ]</span></a></div>
+            <div class="hero-meta"><div>LOCATION: <span>INDIA</span></div><div>FIELD: <span>CYBER SECURITY</span></div><div>MODE: <span>LEARNING / BUILDING</span></div></div>
+          </div>
+          <aside class="identity-card glass tech-panel reveal" aria-label="Developer system profile">
+            <div class="identity-top"><span>USER_PROFILE.dat</span><span>V.01</span></div>
+            <div class="identity-art" aria-hidden="true"><div class="orbit"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="core-symbol">AV</div></div>
+            <div class="identity-lines">
+              <div class="identity-line"><span class="key">USER_ID</span><span class="value">AVINASH_01</span></div>
+              <div class="identity-line"><span class="key">DESIGNATION</span><span class="value">STUDENT / DEVELOPER</span></div>
+              <div class="identity-line"><span class="key">SYSTEM_STATUS</span><span class="value online">● ACTIVE</span></div>
+              <div><div class="identity-line"><span class="key">CURIOSITY_LEVEL</span><span class="value">ALWAYS EXPANDING</span></div><div class="mini-bar"><span></span></div></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="about"><div class="container">
+        <div class="section-heading reveal"><div><div class="eyebrow">01 // USER INFORMATION</div><h2 class="section-title">ABOUT <span class="accent">ME</span></h2></div><span class="section-code">/root/profile/about.txt</span></div>
+        <div class="terminal glass tech-panel reveal">
+          <div class="terminal-top"><div class="terminal-top-left"><div class="terminal-lights" aria-hidden="true"><span></span><span></span><span></span></div><span>AVINASH@CYBERSPACE: ~</span></div><span>TERMINAL v1.0</span></div>
+          <div class="terminal-body" id="terminalOutput" aria-live="polite"><span class="terminal-prompt">visitor@portfolio:~$ </span><span class="terminal-command">initialize_profile</span><br><span class="terminal-output">Establishing secure connection...</span><br><span class="terminal-cursor"></span></div>
+          <div class="about-bottom"><span>ENCODING: UTF-8</span><span>CONNECTION: ENCRYPTED SIMULATION</span><span id="terminalClock">LOCAL_TIME: --:--:--</span></div>
+        </div>
+      </div></section>
+
+      <section class="section" id="skills"><div class="container">
+        <div class="section-heading reveal"><div><div class="eyebrow">02 // CAPABILITY DATABASE</div><h2 class="section-title">SKILL <span class="accent">MATRIX</span></h2></div><span class="section-code">/modules/loaded</span></div>
+        <div class="skills-grid">
+          <article class="skill-card glass tech-panel glitch-hover reveal"><span class="skill-icon">&lt;/&gt;</span><div class="skill-name glitch-text">HTML / CSS</div><div class="skill-caption">Web structure and interface styling</div></article>
+          <article class="skill-card glass tech-panel glitch-hover reveal"><span class="skill-icon">JS_</span><div class="skill-name glitch-text">JavaScript</div><div class="skill-caption">Interactive web development</div></article>
+          <article class="skill-card glass tech-panel glitch-hover reveal"><span class="skill-icon">Py()</span><div class="skill-name glitch-text">Python</div><div class="skill-caption">Learning automation and security tools</div></article>
+          <article class="skill-card glass tech-panel glitch-hover reveal"><span class="skill-icon">[SEC]</span><div class="skill-name glitch-text">Cybersecurity</div><div class="skill-caption">Security fundamentals and practical labs</div></article>
+        </div>
+        <p class="project-note reveal">SKILL STATUS: CONTINUOUSLY DEVELOPING // This matrix reflects learning areas, not professional certifications or expert-level proficiency.</p>
+      </div></section>
+
+      <section class="section" id="projects"><div class="container">
+        <div class="section-heading reveal"><div><div class="eyebrow">03 // DEPLOYED EXPERIMENTS</div><h2 class="section-title">PROJECT <span class="accent">MATRIX</span></h2></div><span class="section-code">4 PROJECT SLOTS // GITHUB</span></div>
+        <div class="project-grid">
+          <article class="project-card glass tech-panel glitch-hover reveal"><div class="project-top"><span class="project-index">PROJECT_001</span><span class="project-status">BUILT</span></div><div class="project-visual" aria-hidden="true"><span class="visual-corner">THREAT_ANALYSIS.exe</span><span class="visual-glyph magenta-text">[!]</span></div><h3 class="project-title glitch-text">PhishGuard</h3><p class="project-description">A rule-based phishing URL detector designed to inspect URL patterns and flag potentially suspicious links through a security-focused web interface.</p><div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Web Security</span></div><div class="project-footer"><span>TYPE: SECURITY TOOL</span><a class="project-link" href="https://github.com/Aviinani/PhishGuard" target="_blank" rel="noopener noreferrer">SOURCE ↗</a></div></article>
+          <article class="project-card glass tech-panel glitch-hover reveal"><div class="project-top"><span class="project-index">PROJECT_002</span><span class="project-status in-progress">IN PROGRESS</span></div><div class="project-visual" aria-hidden="true"><span class="visual-corner">LOG_MONITOR.sys</span><span class="visual-glyph">01:01</span></div><h3 class="project-title glitch-text">LogShield</h3><p class="project-description">A security monitoring dashboard concept for examining login activity, identifying repeated failed attempts, and presenting suspicious events.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Log Analysis</span></div><div class="project-footer"><span>TYPE: SOC DASHBOARD</span><a class="project-link" href="https://github.com/Aviinani" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></div></article>
+          <article class="project-card glass tech-panel glitch-hover reveal"><div class="project-top"><span class="project-index">PROJECT_003</span><span class="project-status in-progress">IN PROGRESS</span></div><div class="project-visual" aria-hidden="true"><span class="visual-corner">FILE_INTEGRITY.chk</span><span class="visual-glyph green-text">{#}</span></div><h3 class="project-title glitch-text">FileGuard</h3><p class="project-description">A file-integrity monitoring project concept combining a Python backend with a web dashboard to help track file changes and integrity checks.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">SHA-256</span><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span></div><div class="project-footer"><span>TYPE: FILE MONITOR</span><a class="project-link" href="https://github.com/Aviinani" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></div></article>
+          <article class="project-card glass tech-panel glitch-hover reveal"><div class="project-top"><span class="project-index">PROJECT_004</span><span class="project-status">ONLINE</span></div><div class="project-visual" aria-hidden="true"><span class="visual-corner">WEB_INTERFACE.html</span><span class="visual-glyph magenta-text">&lt;AV/&gt;</span></div><h3 class="project-title glitch-text">Portfolio Website</h3><p class="project-description">A personal developer portfolio built to showcase technical learning, cybersecurity projects, and web design experiments in one place.</p><div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">GitHub Pages</span></div><div class="project-footer"><span>TYPE: PERSONAL WEBSITE</span><a class="project-link" href="https://github.com/Aviinani/Portfolio-Website" target="_blank" rel="noopener noreferrer">SOURCE ↗</a></div></article>
+        </div>
+        <p class="project-note reveal">PROJECT NOTE: Project status is shown individually. Open the linked repositories to inspect available source code and current implementation.</p>
+      </div></section>
+
+      <section class="section" id="contact"><div class="container">
+        <div class="section-heading reveal"><div><div class="eyebrow">04 // OPEN COMMUNICATION CHANNEL</div><h2 class="section-title">CONTACT <span class="accent">PORTAL</span></h2></div><span class="section-code">CHANNEL: PUBLIC</span></div>
+        <div class="contact-grid">
+          <div class="contact-panel glass tech-panel reveal"><div class="eyebrow">INITIATE CONNECTION</div><h3 class="section-title contact-heading">LET'S BUILD SOMETHING<br><span class="accent">INTERESTING.</span></h3><p class="contact-lead">Interested in cybersecurity, development, learning opportunities, or collaborative projects? Connect with me through my public GitHub profile.</p>
+            <a class="contact-row" href="https://github.com/Aviinani" target="_blank" rel="noopener noreferrer"><span class="contact-icon" aria-hidden="true">GH</span><span><span class="contact-label">GITHUB_PROFILE</span><span class="contact-value">github.com/Aviinani ↗</span></span></a>
+            <a class="contact-row" href="https://github.com/Aviinani/Portfolio-Website" target="_blank" rel="noopener noreferrer"><span class="contact-icon" aria-hidden="true">&lt;/&gt;</span><span><span class="contact-label">PORTFOLIO_SOURCE</span><span class="contact-value">Explore this website's repository ↗</span></span></a>
+          </div>
+          <div class="portal-graphic glass tech-panel reveal"><div class="portal-ring" aria-hidden="true"><span class="portal-symbol">CONNECT</span></div><h3 class="portal-title">SECURE CHANNEL READY</h3><p class="portal-copy">Connection awaits. Choose a channel below to open the relevant profile in a new tab.</p><a class="tech-button glitch-hover" href="https://github.com/Aviinani" target="_blank" rel="noopener noreferrer"><span class="glitch-text">[ OPEN GITHUB ]</span><span aria-hidden="true">↗</span></a></div>
+        </div>
+      </div></section>
+    </main>
+
+    <footer class="footer"><div class="container footer-inner"><span>© <span id="currentYear"></span> AVINASH<span class="accent">.exe</span></span><span>BUILT WITH CURIOSITY <span class="magenta-text">♥</span> &amp; CODE</span><a class="project-link" href="#home">RETURN_TO_TOP ↑</a></div></footer>
+  </div>
+  <a href="#home" class="back-top" id="backTop" aria-label="Back to top">↑</a>
+</body>
+</html>
