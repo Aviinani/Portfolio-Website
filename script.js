@@ -1,165 +1,259 @@
 
-/* ==========================================
-   AVINASH PORTFOLIO — CYBER INTERACTIONS
-========================================== */
+// =========================================================
+// AVINASH PORTFOLIO — INTERACTIONS
+// Replace the entire contents of script.js
+// =========================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    const menuButton = document.getElementById("menuButton");
-    const mobileNav = document.getElementById("mobileNav");
-    const navbar = document.querySelector(".navbar");
+  const navbar = document.getElementById("navbar");
+  const menuButton = document.getElementById("menuButton");
+  const navLinks = document.getElementById("navLinks");
+  const backToTop = document.getElementById("backToTop");
+  const pointerGlow = document.querySelector(".pointer-glow");
+  const year = document.getElementById("year");
 
-    /* MOBILE NAVIGATION */
-    if (menuButton && mobileNav) {
-        menuButton.addEventListener("click", () => {
-            const isOpen = mobileNav.classList.toggle("active");
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-            menuButton.textContent = isOpen ? "×" : "☰";
-            menuButton.setAttribute("aria-expanded", String(isOpen));
-        });
+  // Current year in the footer
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
 
-        mobileNav.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                mobileNav.classList.remove("active");
-                menuButton.textContent = "☰";
-                menuButton.setAttribute("aria-expanded", "false");
-            });
-        });
+  // -------------------------------------------------------
+  // NAVBAR SCROLL EFFECT
+  // -------------------------------------------------------
 
-        document.addEventListener("click", event => {
-            if (
-                mobileNav.classList.contains("active") &&
-                !mobileNav.contains(event.target) &&
-                !menuButton.contains(event.target)
-            ) {
-                mobileNav.classList.remove("active");
-                menuButton.textContent = "☰";
-                menuButton.setAttribute("aria-expanded", "false");
-            }
-        });
+  function updateScrollUI() {
+    const scrollY = window.scrollY;
+
+    if (navbar) {
+      navbar.classList.toggle("scrolled", scrollY > 30);
     }
 
-    /* NAVBAR SCROLL EFFECT */
-    function updateNavbar() {
-        if (navbar) {
-            navbar.classList.toggle("scrolled", window.scrollY > 30);
-        }
+    if (backToTop) {
+      backToTop.classList.toggle("visible", scrollY > 450);
     }
+  }
 
-    updateNavbar();
-    window.addEventListener("scroll", updateNavbar, { passive: true });
+  window.addEventListener("scroll", updateScrollUI, {
+    passive: true
+  });
 
-    /* SCROLL REVEAL ANIMATIONS */
-    const revealElements = document.querySelectorAll(".reveal");
+  updateScrollUI();
 
-    if ("IntersectionObserver" in window) {
-        const revealObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.12
-        });
+  // -------------------------------------------------------
+  // MOBILE NAVIGATION
+  // -------------------------------------------------------
 
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
-        });
-    } else {
-        revealElements.forEach(element => {
-            element.classList.add("show");
-        });
-    }
+  function closeMenu() {
+    if (!menuButton || !navLinks) return;
 
-    /* SMOOTH INTERNAL NAVIGATION */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", event => {
-            const href = anchor.getAttribute("href");
+    menuButton.classList.remove("open");
+    navLinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+  }
 
-            if (!href || href === "#") return;
+  if (menuButton && navLinks) {
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
 
-            const target = document.querySelector(href);
-            if (!target) return;
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: window.matchMedia(
-                    "(prefers-reduced-motion: reduce)"
-                ).matches ? "auto" : "smooth",
-                block: "start"
-            });
-        });
+      menuButton.classList.toggle("open", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
     });
 
-    /* ACTIVE NAV LINK */
-    const sections = document.querySelectorAll("main section[id]");
-    const navLinks = document.querySelectorAll(
-        ".desktop-nav a[href^='#'], .mobile-nav a[href^='#']"
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+      const clickedInsideMenu = navLinks.contains(event.target);
+      const clickedButton = menuButton.contains(event.target);
+
+      if (!clickedInsideMenu && !clickedButton) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+        menuButton.focus();
+      }
+    });
+  }
+
+  // -------------------------------------------------------
+  // SCROLL REVEAL ANIMATIONS
+  // HTML uses .reveal; CSS uses .reveal.show
+  // -------------------------------------------------------
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -35px 0px"
+      }
     );
 
-    if ("IntersectionObserver" in window && sections.length) {
-        const sectionObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  } else {
+    revealElements.forEach((element) => {
+      element.classList.add("show");
+    });
+  }
 
-                navLinks.forEach(link => {
-                    const active = link.getAttribute("href") ===
-                        `#${entry.target.id}`;
+  // -------------------------------------------------------
+  // ACTIVE NAVIGATION LINK
+  // -------------------------------------------------------
 
-                    if (active) {
-                        link.classList.add("active");
-                    } else {
-                        link.classList.remove("active");
-                    }
-                });
-            });
-        }, {
-            rootMargin: "-25% 0px -60% 0px"
+  const sections = document.querySelectorAll(
+    "main section[id], main section.section-wrap[id]"
+  );
+
+  const navItems = document.querySelectorAll(".nav-link");
+
+  if ("IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const sectionId = entry.target.id;
+
+          navItems.forEach((link) => {
+            const isActive =
+              link.getAttribute("href") === `#${sectionId}`;
+
+            link.classList.toggle("active", isActive);
+          });
         });
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px",
+        threshold: 0
+      }
+    );
 
-        sections.forEach(section => sectionObserver.observe(section));
-    }
+    sections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
+  }
 
-    /* TERMINAL CURSOR SAFETY */
-    document.querySelectorAll(".terminal-cursor").forEach(cursor => {
-        cursor.setAttribute("aria-hidden", "true");
+  // -------------------------------------------------------
+  // SMOOTH SCROLL FOR INTERNAL LINKS
+  // -------------------------------------------------------
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+
+      if (!targetId || targetId === "#") return;
+
+      const target = document.querySelector(targetId);
+
+      if (!target) return;
+
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start"
+      });
+
+      // Keep the URL in sync without a page reload.
+      history.replaceState(null, "", targetId);
+    });
+  });
+
+  // -------------------------------------------------------
+  // BACK TO TOP
+  // -------------------------------------------------------
+
+  if (backToTop) {
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotion ? "auto" : "smooth"
+      });
+    });
+  }
+
+  // -------------------------------------------------------
+  // POINTER GLOW — DESKTOP ONLY
+  // -------------------------------------------------------
+
+  const hasFinePointer = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+  ).matches;
+
+  if (pointerGlow && hasFinePointer && !reduceMotion) {
+    document.addEventListener("pointermove", (event) => {
+      pointerGlow.style.left = `${event.clientX}px`;
+      pointerGlow.style.top = `${event.clientY}px`;
+      pointerGlow.style.opacity = "1";
     });
 
-    /* SUBTLE CYBER CURSOR GLOW — DESKTOP ONLY */
-    const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
+    document.addEventListener("pointerleave", () => {
+      pointerGlow.style.opacity = "0";
+    });
+  }
 
-    const finePointer = window.matchMedia(
-        "(pointer: fine)"
-    ).matches;
+  // -------------------------------------------------------
+  // CYBER ROLE TEXT ROTATION
+  // -------------------------------------------------------
 
-    if (!reduceMotion && finePointer) {
-        const glow = document.createElement("div");
-        glow.className = "cyber-pointer-glow";
-        glow.setAttribute("aria-hidden", "true");
-        document.body.appendChild(glow);
+  const roleElement = document.querySelector(".typed-role");
 
-        let glowVisible = false;
+  if (roleElement && !reduceMotion) {
+    const roles = [
+      "Cyber Security",
+      "Web Development",
+      "Security Projects",
+      "Continuous Learning"
+    ];
 
-        window.addEventListener("pointermove", event => {
-            glow.style.left = `${event.clientX}px`;
-            glow.style.top = `${event.clientY}px`;
+    let roleIndex = 0;
 
-            if (!glowVisible) {
-                glow.style.opacity = "1";
-                glowVisible = true;
-            }
-        }, { passive: true });
+    window.setInterval(() => {
+      roleIndex = (roleIndex + 1) % roles.length;
 
-        document.addEventListener("pointerleave", () => {
-            glow.style.opacity = "0";
-            glowVisible = false;
-        });
-    }
+      roleElement.animate(
+        [
+          { opacity: 0, transform: "translateY(5px)" },
+          { opacity: 1, transform: "translateY(0)" }
+        ],
+        {
+          duration: 350,
+          easing: "ease-out"
+        }
+      );
 
-    /* HERO LOAD ANIMATION */
-    document.body.classList.add("loaded");
+      roleElement.textContent = roles[roleIndex];
+    }, 2600);
+  }
+
+  console.log(
+    "%c AVINASH // PORTFOLIO ONLINE ",
+    "background:#11152b;color:#22d3ee;font-weight:bold;padding:8px;"
+  );
 });
