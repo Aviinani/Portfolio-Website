@@ -7,7 +7,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navbar");
   const menuButton = document.getElementById("menuButton");
-  const navLinks = document.getElementById("navLinks");
+  const navLinks = document.getElementById("navLinks"); 
   const backToTop = document.getElementById("backToTop");
   const pointerGlow = document.querySelector(".pointer-glow");
   const year = document.getElementById("year");
